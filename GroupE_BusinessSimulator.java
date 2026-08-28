@@ -1,24 +1,22 @@
 public class GroupE_BusinessSimulator {
 
-    // Main method: entry point of the application
     public static void main(String[] args) {
 
-        // Array 1: Parallel array storing product names for BuildRight Hardware
+        // Array storing product names for BuildRight Hardware
         String[] itemNames = {"Cement (bag)", "Nails (kg)", "Paint (tin)", "Timber (piece)"};
 
-        // Array 2: Parallel array storing corresponding unit prices in UGX
+        // Array storing corresponding unit prices in UGX
         double[] itemPrices = {35000.0, 4000.0, 45000.0, 25000.0};
 
-        // Array 3: Parallel array storing purchase quantities assigned for test verification
+        // Array storing purchase quantities assigned for test verification
         int[] itemQuantities = {4, 2, 2, 4};
 
-        // Call method 1 to loop through arrays and display price list
+        // Method 1 to loop through arrays and display price list
         displayPriceList(itemNames, itemPrices);
 
-        // Call method 2 to process discount rules, print receipt, and return grand total
+        // Method 2 to process discount rules, print receipt, and return grand total
         double grandTotal = processAndPrintReceipt(itemNames, itemPrices, itemQuantities);
 
-        // Print divider line before grand total output
         System.out.println("----------------------------------------");
 
         // Print final grand total formatted to 2 decimal places using returned value
