@@ -1,7 +1,9 @@
+import java.util.Scanner;
 public class GroupE_BusinessSimulator {
 
     // Main method: entry point of the application
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
         // Array 1: Parallel array storing product names for BuildRight Hardware
         String[] itemNames = {"Cement (bag)", "Nails (kg)", "Paint (tin)", "Timber (piece)"};
