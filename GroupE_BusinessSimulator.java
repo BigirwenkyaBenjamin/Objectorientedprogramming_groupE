@@ -1,23 +1,22 @@
 import java.util.Scanner;
 public class GroupE_BusinessSimulator {
 
-    // Main method: entry point of the application
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Array 1: Parallel array storing product names for BuildRight Hardware
+        // Array storing product names for BuildRight Hardware
         String[] itemNames = {"Cement (bag)", "Nails (kg)", "Paint (tin)", "Timber (piece)"};
 
-        // Array 2: Parallel array storing corresponding unit prices in UGX
+        // Array storing corresponding unit prices in UGX
         double[] itemPrices = {35000.0, 4000.0, 45000.0, 25000.0};
 
-        // Array 3: Parallel array storing purchase quantities assigned for test verification
+        // Array storing purchase quantities assigned for test verification
         int[] itemQuantities = {4, 2, 2, 4};
 
-        // Call method 1 to loop through arrays and display price list
+        // Method 1 to loop through arrays and display price list
         displayPriceList(itemNames, itemPrices);
 
-        // Call method 2 to process discount rules, print receipt, and return grand total
+        // Method 2 to process discount rules, print receipt, and return grand total
         double grandTotal = processAndPrintReceipt(itemNames, itemPrices, itemQuantities);
 
         // Print divider line before grand total output
@@ -70,7 +69,7 @@ public class GroupE_BusinessSimulator {
             // Variable to hold dynamic receipt explanation text
             String discountNote = "";
 
-            // Conditional block handling Group E specific discount rules
+            // Conditional block handling specific discount rules
             if (i == 0) { 
                 // Cement (bag): 5% off total subtotal if quantity >= 5
                 if (qty >= 5) {
@@ -100,14 +99,13 @@ public class GroupE_BusinessSimulator {
                 }
             }
 
-            // Print itemized line with quantity, subtotal, and explanation
+            // Print itemized line with quantity, subtotal
             System.out.printf("%-15s x%d = UGX %.2f %s%n", name, qty, finalSubtotal, discountNote);
 
-            // Add item subtotal to running total balance
+            // Adding item subtotal to running total balance
             total += finalSubtotal;
         }
 
-        // Return calculated grand total back to caller
         return total;
     }
 }
