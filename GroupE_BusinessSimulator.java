@@ -106,6 +106,6 @@ public class GroupE_BusinessSimulator {
             total += finalSubtotal;
         }
 
-        return total;
+        return total;//REVIEWED
     }
 }
