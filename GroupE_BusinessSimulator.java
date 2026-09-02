@@ -26,6 +26,7 @@ public class GroupE_BusinessSimulator {
     // Method 1: Display formatted business price list
     public static void displayPriceList(String[] names, double[] prices) {
         System.out.println("==== BUILDRIGHT HARDWARE ====");
+        
         for (int i = 0; i < names.length; i++) {
             System.out.printf("%d. %-15s UGX %.2f%n", i + 1, names[i], prices[i]);
         }
@@ -83,7 +84,7 @@ public class GroupE_BusinessSimulator {
         return total;
     }
 
-    // Helper method to return discount threshold for each product
+    // Method to return discount threshold for each product
     private static int getDiscountThreshold(int itemIndex) {
         switch (itemIndex) {
             case 0: return 5;  // Cement
