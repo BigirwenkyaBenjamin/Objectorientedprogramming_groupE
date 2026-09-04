@@ -73,7 +73,7 @@ public class GroupE_BusinessSimulator {
 
         return total;
     }
-
+//Method to get the discount threshold
     public static double getDiscountThreshold(int index) {
        int[] discountThresholds = {5, 0, 3, 4}; // Corresponding thresholds for Cement, Nails, Paint, Timber
        return discountThresholds[index];
