@@ -46,36 +46,26 @@ public class GroupE_BusinessSimulator {
             double rawSubtotal = price * qty;
             double finalSubtotal = rawSubtotal;
             String discountNote = "";
+              
+             // Cement
+           if (i == 0 && qty >= 5) { 
+               finalSubtotal = rawSubtotal * 0.95;
+                discountNote = "(5% discount applied)";
+               
+             // Paint
+            } else if (i == 2 && qty >= 3) { 
+              finalSubtotal = rawSubtotal - 5000;
+              discountNote = "(UGX 5,000 discount applied)";
+              
+             // Timber
+            } else if (i == 3 && qty >= 4) { 
+              finalSubtotal = rawSubtotal * 0.90;
+              discountNote = "(10% discount applied)";
 
-            switch (i) {
-                case 0: // Cement: 5% off if qty >= 5
-                    if (qty >= 5) {
-                        finalSubtotal = rawSubtotal * 0.95;
-                        discountNote = "(5% discount applied)";
-                    } else {
-                        discountNote = "(no discount - fewer than 5)";
-                    }
-                    break;
-                case 1: // Nails: no discount
-                    discountNote = "(no discount)";
-                    break;
-                case 2: // Paint: UGX 5,000 off if qty >= 3
-                    if (qty >= 3) {
-                        finalSubtotal = rawSubtotal - 5000.0;
-                        discountNote = "(UGX 5,000 discount applied)";
-                    } else {
-                        discountNote = "(no discount - fewer than 3)";
-                    }
-                    break;
-                case 3: // Timber: 10% off if qty >= 4
-                    if (qty >= 4) {
-                        finalSubtotal = rawSubtotal * 0.90;
-                        discountNote = "(10% discount applied)";
-                    } else {
-                        discountNote = "(no discount - fewer than 4)";
-                    }
-                    break;
-            }
+            } else {
+              discountNote = "(No discount)";
+         }
+
 
             System.out.printf("%-15s x%d = UGX %.2f %s%n", name, qty, finalSubtotal, discountNote);
             total += finalSubtotal;
@@ -84,14 +74,9 @@ public class GroupE_BusinessSimulator {
         return total;
     }
 
-    // Method to return discount threshold for each product
-    private static int getDiscountThreshold(int itemIndex) {
-        switch (itemIndex) {
-            case 0: return 5;  // Cement
-            case 1: return Integer.MAX_VALUE;  // Nails (no discount)
-            case 2: return 3;  // Paint
-            case 3: return 4;  // Timber
-            default: return 0;
-        }
+    public static double getDiscountThreshold(int index) {
+       int[] discountThresholds = {5, 0, 3, 4}; // Corresponding thresholds for Cement, Nails, Paint, Timber
+       return discountThresholds[index];
     }
+
 }
