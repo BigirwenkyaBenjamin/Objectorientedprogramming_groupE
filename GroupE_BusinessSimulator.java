@@ -32,8 +32,9 @@ public class GroupE_BusinessSimulator {
         }
         System.out.println();
     }
-
+    
     // Method 2: Calculate discounts, print receipt lines, and return total
+//------------------------------------------------------------------------------------------------
     public static double processAndPrintReceipt(String[] names, double[] prices, int[] quantities) {
         double total = 0.0;
         System.out.println("==== RECEIPT ====");
@@ -48,16 +49,19 @@ public class GroupE_BusinessSimulator {
             String discountNote = "";
               
              // Cement
+            //-----------------------------------------------------
            if (i == 0 && qty >= 5) { 
                finalSubtotal = rawSubtotal * 0.95;
                 discountNote = "(5% discount applied)";
                
              // Paint
+            //-----------------------------------------------------
             } else if (i == 2 && qty >= 3) { 
               finalSubtotal = rawSubtotal - 5000;
               discountNote = "(UGX 5,000 discount applied)";
               
              // Timber
+            //-----------------------------------------------------
             } else if (i == 3 && qty >= 4) { 
               finalSubtotal = rawSubtotal * 0.90;
               discountNote = "(10% discount applied)";
@@ -65,15 +69,14 @@ public class GroupE_BusinessSimulator {
             } else {
               discountNote = "(No discount)";
          }
-
-
             System.out.printf("%-15s x%d = UGX %.2f %s%n", name, qty, finalSubtotal, discountNote);
             total += finalSubtotal;
         }
 
         return total;
     }
-//Method to get the discount threshold
+   //Method to get the discount threshold
+//-----------------------------------------------------------------------------------------------------------    
     public static double getDiscountThreshold(int index) {
        int[] discountThresholds = {5, 0, 3, 4}; // Corresponding thresholds for Cement, Nails, Paint, Timber
        return discountThresholds[index];
